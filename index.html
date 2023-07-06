@@ -37,6 +37,16 @@
                     localStorage.removeItem(obj.email)
                     parentElem.removeChild(childElem)
                 }
+
+                const editButton = document.createElement('input')
+                editButton.type = "button"
+                editButton.value ='Edit'
+                editButton.onclick = () => {
+                    localStorage.removeChild(obj.email)
+                    document.getElementById('usernameInputTag').value = obj.name 
+                    document.getElementById('emailInputTag').value = obj.email
+                    document.getElementById('phoneNumberInputTag').value = obj.phonenumber
+                }
                 childElem.appendChild(deleteButton)
                 parentElem.appendChild(childElem)
            
