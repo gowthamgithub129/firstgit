@@ -2,7 +2,7 @@
     <body>
         <form onsubmit="saveToLocalStorage(event)">
             <label>Name</label>
-            <input type="text" name="username" required/>
+            <input type="text" name="usernm" required/>
             <label>EmailId</label>
             <input type="email" name="emailId" required/>
             <label>phone</label>
@@ -12,18 +12,23 @@
         <script>
             function saveToLocalStorage(event) {
                 event.prventDefault();
-                const name = event.target.username.value;
+                const name = event.target.usernm.value;
                 const email = event.target.emailId.value;
                 const phonenumber = event.target.phonenumber.value;
-                localstorage.setItem('name', name)
-                localstorage.setItem('email', email);
-                localstorage.setItem('phonenumber', phonenumber)
+                //localstorage.setItem('name', name)
+                //localstorage.setItem('email', email);
+                //localstorage.setItem('phonenumber', phonenumber)
                 const obj = {
                     nmae, 
                     email,
                     phonenumber
                 }
-                localStorage.setItem('userDetails',Json.stringfy)
+                localStorage.setItem('userDetails',JSON.stringfy(obj))
+            }
+            function ShowUserOnScreen(obj){
+                const parentElem = document.getElementById('listOfitems')
+                
+                parentElem.innerHtml = `<li>${obj.name} - ${obj.email} - ${obj.phonenumber}</li>`
             }
 
         </script>
