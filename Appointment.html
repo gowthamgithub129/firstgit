@@ -61,8 +61,20 @@
       // Handle the success response
       console.log('User deleted:', response.data);
       // Remove the user details from the website's UI
-      // without refreshing the page
+      // without refreshing the pag
     })
+    const editIcon = document.getElementById('edit-icon');
+const registrationForm = document.getElementById('registration-form');
+// Assuming you have a function to retrieve user details
+const userDetails = getUserDetails();
+
+editIcon.addEventListener('click', () => {
+  // Populate the registration form with user details
+  registrationForm.name.value = userDetails.name;
+  registrationForm.email.value = userDetails.email;
+  // Populate other form fields
+});
+
     .catch(error => {
       // Handle the error
       console.error('Error deleting user:', error);
