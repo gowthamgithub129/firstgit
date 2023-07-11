@@ -55,7 +55,20 @@
                .catch((err) =>{
                 console.log(err)
                })
-               
+               const deleteUser = (userId) => {
+  axios.delete(`https://crudcrud.com/api/YOUR_API_ENDPOINT/${userId}`)
+    .then(response => {
+      // Handle the success response
+      console.log('User deleted:', response.data);
+      // Remove the user details from the website's UI
+      // without refreshing the page
+    })
+    .catch(error => {
+      // Handle the error
+      console.error('Error deleting user:', error);
+    });
+};
+
                
                
                //.setItem(obj.email,JSON.stringify(obj))
