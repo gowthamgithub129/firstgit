@@ -1,8 +1,8 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  console.log('GOWTHAM'); // Log your name
-  res.end(); // End the response
+  console.log('GOWTHAM');
+  res.end(); 
 });
 
 server.listen(4000, () => {
