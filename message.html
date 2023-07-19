@@ -1,0 +1,30 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group Chat</title>
+</head>
+<body>
+    <h1>Group Chat</h1>
+    <form id="messageForm">
+        <label for="message">Message:</label>
+        <input type="text" id="message" required>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        document.getElementById("messageForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = localStorage.getItem("username");
+            const message = document.getElementById("message").value;
+            sendMessage(username, message);
+            document.getElementById("message").value = '';
+        });
+
+        function sendMessage(username, message) {
+            // Your code to send the message to the server goes here.
+            // You can use AJAX, fetch API, or any other method to send data to the server.
+        }
+    </script>
+</body>
+</html>
