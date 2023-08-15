@@ -1,21 +1,38 @@
 import React from 'react';
-import ExpenseItems from './ExpenseItems'; // Make sure to provide the correct path to the ExpenseItems component
+import ExpenseItem from './components/ExpenseItem';
 
-function App() {
+const App = () => {
   const expenses = [
-    { id: 1, location: 'Grocery Store' },
-    { id: 2, location: 'Restaurant' },
-    { id: 3, location: 'Online Shopping' },
+    {
+      id: 1,
+      title: 'Groceries',
+      amount: 50.00,
+      location: 'Grocery Store',
+      date: new Date(2023, 7, 15), // August 15, 2023
+    },
+    {
+      id: 2,
+      title: 'Dinner',
+      amount: 30.00,
+      location: 'Restaurant',
+      date: new Date(2023, 7, 16), // August 16, 2023
+    },
     // ... add more expenses as needed
   ];
 
   return (
     <div className="app">
       {expenses.map(expense => (
-        <ExpenseItems key={expense.id} LocationOfExpenditure={expense.location} />
+        <ExpenseItem
+          key={expense.id}
+          title={expense.title}
+          amount={expense.amount}
+          location={expense.location}
+          date={expense.date}
+        />
       ))}
     </div>
   );
-}
+};
 
 export default App;
